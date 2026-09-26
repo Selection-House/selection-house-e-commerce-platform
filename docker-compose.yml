@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: selection_house
+      POSTGRES_PASSWORD: selection_house
+      POSTGRES_DB: selection_house
+    ports:
+      - "5432:5432"
+    volumes:
+      - selection-house-db:/var/lib/postgresql/data
+
+volumes:
+  selection-house-db:
