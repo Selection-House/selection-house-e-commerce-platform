@@ -33,7 +33,6 @@ export async function POST(request: Request) {
         const allocation = await allocateStock(tx, variant.id, line.quantity);
         const price = Number(variant.price);
         const gstRate = Number(variant.gstRate);
-        const tax = priceWithTax(price, gstRate).tax;
         snapshots.push({
           variantId: variant.id,
           productName: variant.product.name,
